@@ -1,0 +1,49 @@
+name: WorkFlow Patients Home
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  KEY_PEM: ${{ secrets.KEY_PEM }}  
+  PRIVATE KEY: ${{ secrets.PRIVATE_KEY }} 
+  
+jobs:
+
+  deploy:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+       
+     - name: Show files
+       run: ls
+       
+     - name: Delete Files and Stop Service
+       uses: fifsky/ssh-action@master
+       with:
+         command: |
+          pm2 stop patiensHome
+          sudo rm -vrf patiensHome/*
+         host: patiensHome1.ddns.net
+         user: ubuntu
+         key: ${{ secrets.KEY_PEM }}
+
+     - name: Upload Files
+       uses: siva1024/scp-deployer@latest
+       with:
+         host: patiensHome1.ddns.net
+         username: "ubuntu"
+         key: ${{ secrets.KEY_PEM }}
+         source: "./"
+         target: "patientsHome/"
+
+     - name: Install dependencies and start service
+       uses: fifsky/ssh-action@master
+       with:
+         command: |
+          cd patiensHome
+          npm install
+          pm2 start patiensHome
+         host: patiensHome1.ddns.net
+         user: ubuntu
+         key: ${{ secrets.KEY_PEM }}
