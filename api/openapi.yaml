@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Distributed Healthcare system - Patient's home
+  description: This API allows the hospital to collect information (heart rate and
+    blood oxygen information) when necessary and send alerts if it detects any risk.
+  termsOfService: http://spilab.es/
+  contact:
+    name: Spilab
+    url: http://spilab.es/
+    email: spilab.uex@gmail.com
+  version: "1.0"
+servers:
+- url: https://localhost/
+tags:
+- name: Patient
+paths:
+  /heartRate:
+    get:
+      tags:
+      - Patient
+      summary: Gets the heart rate
+      operationId: getHeartRate
+      responses:
+        "200":
+          description: Succesful response
+          content:
+            text/plain:
+              schema:
+                title: Succesful response
+                type: string
+                example: Get Correctly
+                x-content-type: text/plain
+        "404":
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Endpoint or ID not found
+                type: string
+                example: Not found
+                x-content-type: text/plain
+      x-swagger-router-controller: Patient
+  /bloodOxygen:
+    get:
+      tags:
+      - Patient
+      summary: Gets the blood oxygen
+      operationId: getBloodOxygen
+      responses:
+        "200":
+          description: Succesful response
+          content:
+            text/plain:
+              schema:
+                title: Succesful response
+                type: string
+                example: Get Correctly
+                x-content-type: text/plain
+        "404":
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Endpoint or ID not found
+                type: string
+                example: Not found
+                x-content-type: text/plain
+      x-swagger-router-controller: Patient
+  /alert:
+    post:
+      tags:
+      - Patient
+      summary: Post alert
+      operationId: postAlert
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              example: "{\"message\":\"alert message\"}"
+      responses:
+        "200":
+          description: Succesful response
+          content:
+            text/plain:
+              schema:
+                title: Succesful response
+                type: string
+                example: Update Correctly
+                x-content-type: text/plain
+        "404":
+          description: Not found response
+          content:
+            text/plain:
+              schema:
+                title: Endpoint or ID not found
+                type: string
+                example: Not found
+                x-content-type: text/plain
+      x-swagger-router-controller: Patient
+components:
+  schemas: {}
+  responses:
+    "200":
+      description: Succesful response
+      content:
+        text/plain:
+          schema:
+            title: Succesful response
+            type: string
+            example: Get Correctly
+            x-content-type: text/plain
+    "201":
+      description: Succesful response
+      content:
+        text/plain:
+          schema:
+            title: Succesful response
+            type: string
+            example: Update Correctly
+            x-content-type: text/plain
+    "404":
+      description: Not found response
+      content:
+        text/plain:
+          schema:
+            title: Endpoint or ID not found
+            type: string
+            example: Not found
+            x-content-type: text/plain

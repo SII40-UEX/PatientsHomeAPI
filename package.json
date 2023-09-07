@@ -1,0 +1,20 @@
+{
+  "name": "distributed-healthcare-system-patient-s-home",
+  "version": "1.0",
+  "description": "This API allows the hospital to collect information (heart rate and blood oxygen information) when necessary and send alerts if it detects any risk.",
+  "main": "index.js",
+  "scripts": {
+	"prestart": "npm install",
+	"start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "oas3-tools": "^2.2.3"
+  }
+}
