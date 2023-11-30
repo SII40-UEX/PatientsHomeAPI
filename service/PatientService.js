@@ -8,10 +8,15 @@
  **/
 exports.getBloodOxygen = function() {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = "Get Correctly";
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+    var res = [];
+
+    for (let index = 0; index < 10; index++) {
+      res.push([Math.floor(Math.random() * (100 - 90) + 90),new Date()])
+      console.log("bucle")
+    }
+
+    if (Object.keys(res).length > 0) {
+      resolve(res);
     } else {
       resolve();
     }
