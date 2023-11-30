@@ -22,7 +22,7 @@ jobs:
           cd patiensHomeAPI
           git pull origin master
           npm install
-          node index.js
+          sudo pm2 restart PatientsAPI
          host: ec2-34-242-37-222.eu-west-1.compute.amazonaws.com
          user: ubuntu
          key: ${{ secrets.KEY_PEM }}
