@@ -12,7 +12,6 @@ exports.getBloodOxygen = function() {
 
     for (let index = 0; index < 10; index++) {
       res.push([Math.floor(Math.random() * (100 - 90) + 90),new Date()])
-      console.log("bucle")
     }
 
     if (Object.keys(res).length > 0) {
