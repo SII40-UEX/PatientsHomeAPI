@@ -23,7 +23,7 @@ jobs:
           git pull origin master
           npm install
           sudo pm2 start PatientsAPI
-         host: ec2-34-242-37-222.eu-west-1.compute.amazonaws.com
+         host: rpi-spilab.ddns.net
          user: ubuntu
          key: ${{ secrets.KEY_PEM }}
 
