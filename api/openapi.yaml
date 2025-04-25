@@ -10,7 +10,7 @@ info:
     email: spilab.uex@gmail.com
   version: "1.0"
 servers:
-- url: https://localhost/
+- url: http://rpi-spilab.duckdns.org:8080/
 tags:
 - name: Patient
 paths:
