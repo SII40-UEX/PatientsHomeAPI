@@ -18,12 +18,12 @@ jobs:
        uses: fifsky/ssh-action@master
        with:
          command: |
-          cd patiensHomeAPI
-          sudo pm2 stop PatientsAPI
+          cd PatientsHomeAPI
+          pm2 stop PatientsAPI
           git pull origin master
           npm install
-          sudo pm2 start PatientsAPI
-         host: rpi-spilab.ddns.net
+          pm2 start PatientsAPI
+         host: rpi-spilab.duckdns.org
          user: ubuntu
          key: ${{ secrets.KEY_PEM }}
 
