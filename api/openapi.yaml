@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Distributed Healthcare system - Patient's home
+  title: Distributed Healthcare system - Patient's home Demo
   description: This API allows the hospital to collect information (heart rate and
     blood oxygen information) when necessary and send alerts if it detects any risk.
   termsOfService: http://spilab.es/
